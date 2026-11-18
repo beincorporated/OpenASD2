@@ -11,6 +11,7 @@ userland/fastfetch/build/
 userland/sbin/build/
 userland/libasd/build/
 userland/libasd/rust/asd_sys/target/
+userland/drvmgr/dctl
 
 kernel/build/
 

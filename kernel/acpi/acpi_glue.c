@@ -353,7 +353,7 @@ uint32_t acpi_smp_init(uint64_t rsdp_phys) {
     }
 
     uacpi_table tbl;
-    st = uacpi_table_find_by_signature(UACPI_MADT_SIGNATURE, &tbl);
+    st = uacpi_table_find_by_signature(ACPI_MADT_SIGNATURE, &tbl);
     if (st != UACPI_STATUS_OK) {
         serial_puts("  [uACPI] MADT table not found; assuming 1 CPU.\n");
         g_smp_info.cpu_count = 1;
