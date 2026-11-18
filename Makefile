@@ -4,6 +4,7 @@
 .PHONY: all boot kernel userland uki live-image prepare-run run run-debug run-headless-debug run-gui-debug bfd bfd-debug iso usb-image clean install install-fresh
 
 QEMU ?= qemu-system-x86_64
+QEMU_SMP ?= 2
 QEMU_DISPLAY ?= gtk
 QEMU_VIDEO_ARGS ?= -device virtio-vga
 RUN_DIR := build/run
@@ -165,6 +166,7 @@ run: prepare-run
 	$(QEMU) \
 		-machine q35,accel=kvm:tcg \
 		-cpu qemu64 \
+		-smp $(QEMU_SMP) \
 		-m 1024 \
 		$(QEMU_VIDEO_ARGS) \
 		-display $(QEMU_DISPLAY) \
@@ -188,6 +190,7 @@ run-debug: prepare-run
 	$(QEMU) \
 		-machine q35,accel=kvm:tcg \
 		-cpu qemu64 \
+		-smp $(QEMU_SMP) \
 		-m 1024 \
 		$(QEMU_VIDEO_ARGS) \
 		-display $(QEMU_DISPLAY) \
@@ -213,6 +216,7 @@ run-headless-debug: prepare-run
 	$(QEMU) \
 		-machine q35,accel=tcg \
 		-cpu qemu64 \
+		-smp $(QEMU_SMP) \
 		-m 1024 \
 		-display none \
 		-no-reboot \
@@ -290,6 +294,7 @@ bfd: all
 	$(QEMU) \
 		-machine q35,accel=kvm:tcg \
 		-cpu qemu64 \
+		-smp $(QEMU_SMP) \
 		-m 1024 \
 		-no-reboot \
 		$(QEMU_VIDEO_ARGS) \
@@ -323,6 +328,7 @@ bfd-debug: all
 	$(QEMU) \
 		-machine q35,accel=kvm:tcg \
 		-cpu qemu64 \
+		-smp $(QEMU_SMP) \
 		-m 1024 \
 		-no-reboot \
 		$(QEMU_VIDEO_ARGS) \
