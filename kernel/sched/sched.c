@@ -12,6 +12,7 @@
 #include "../mm/mm.h"
 #include "../usr/usr.h"
 #include "../vfs/vfs.h"
+#include "../acpi/acpi_glue.h"
 #include "../include/string.h"
 #include <stddef.h>
 #include <stdint.h>
@@ -275,7 +276,8 @@ static int sched_kstack_alloc(pcb_t *pcb) {
 #define LAPIC_EOI        0x0B0
 
 static volatile uint32_t *lapic_reg(uint32_t off) {
-    return (volatile uint32_t *)(LAPIC_BASE + off);
+    uint64_t base = acpi_get_lapic_base();
+    return (volatile uint32_t *)((uintptr_t)amm_phys_access((paddr_t)base) + off);
 }
 
 static void lapic_write(uint32_t off, uint32_t val) {
@@ -288,7 +290,12 @@ static void lapic_program_oneshot(uint64_t ns) {
 }
 
 static uint32_t this_cpu_id(void) {
-    /* BSP only until per-CPU runqueues are brought up on APs. */
+    if (g_cpu_count > 1) {
+        uint32_t apic_id = (*lapic_reg(0x020) >> 24) & 0xFF;
+        for (uint32_t i = 0; i < g_smp_info.cpu_count; i++) {
+            if (g_smp_info.cpus[i].apic_id == apic_id) return i;
+        }
+    }
     return 0;
 }
 

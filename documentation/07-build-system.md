@@ -226,4 +226,4 @@ live.img (FAT32)
     └── ... all LIVE_BINS
 ```
 
-At boot, the kernel mounts `EFI/BOOT/` as `/boot` (FAT32, read-only) and copies all binaries from `/boot/bin/` into ramfs as `/bin/`.
+At boot, the kernel mounts `EFI/BOOT/` as `/boot` (FAT32, read-write) and copies all binaries from `/boot/bin/` into ramfs as `/bin/`.

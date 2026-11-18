@@ -94,10 +94,15 @@
 
 #define SYSCALL_MAX   50
 
-/* Signal numbers (subset — enough for v1) */
-#define SIGTERM        1
+/* Signal numbers (POSIX subset) */
+#define SIGHUP         1
+#define SIGINT         2
+#define SIGQUIT        3
 #define SIGKILL        9
+#define SIGTERM       15
 #define SIGCHLD       17
+#define SIGCONT       18
+#define SIGSTOP       19
 
 /* ------------------------------------------------------------------ */
 /* Open flags (match VFS flags) */

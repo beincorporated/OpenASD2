@@ -30,6 +30,7 @@
 #include "arch/pit.h"
 #include "arch/syscall.h"
 #include "security/security.h"
+#include "acpi/acpi_glue.h"
 #include <stddef.h>
 #include <stdint.h>
 #include <string.h>
@@ -380,8 +381,13 @@ void kernel_main_body(asd_bib_t *bib, uint64_t magic) {
 
     /* ----------------------------------------------------------------- */
 
+    serial_puts("  [1.7/7] ACPI & SMP discovery (uACPI)\n");
+    uint32_t smp_cpus = acpi_smp_init(bib->acpi_rsdp_phys);
+
+    /* ----------------------------------------------------------------- */
+
     serial_puts("  [2/7] scheduler\n");
-    sched_init(1); /* single CPU for now; SMP later */
+    sched_init(smp_cpus);
 
     /* ----------------------------------------------------------------- */
 

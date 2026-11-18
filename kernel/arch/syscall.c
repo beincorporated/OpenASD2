@@ -314,9 +314,10 @@ static int validate_user_str_array(const char **vec, size_t max_count,
 /* Error codes                                                          */
 /* ------------------------------------------------------------------ */
 
+#define ESYS_PERM     ((uint64_t)(int64_t)-1)    /* EPERM  */
+#define ESYS_SRCH     ((uint64_t)(int64_t)-3)    /* ESRCH  */
 #define ESYS_FAULT    ((uint64_t)(int64_t)-14)   /* EFAULT */
 #define ESYS_INVAL    ((uint64_t)(int64_t)-22)   /* EINVAL */
-#define ESYS_PERM     ((uint64_t)(int64_t)-1)    /* EPERM  */
 #define ESYS_NOSYS    ((uint64_t)(int64_t)-38)   /* ENOSYS */
 #define ESYS_OVERFLOW ((uint64_t)(int64_t)-75)   /* EOVERFLOW */
 
@@ -1015,10 +1016,25 @@ static uint64_t sys_kill(uint64_t pid_u, uint64_t sig_u) {
     uint32_t sig      = (uint32_t)sig_u;
     if (sig > 31) return ESYS_INVAL;
 
+    pcb_t *cur = sched_current();
     pcb_t *target = sched_find(target_pid);
-    if (!target || target->state == PROC_DEAD) return ESYS_INVAL;
+    if (!target || target->state == PROC_DEAD) return ESYS_SRCH;
+
+    /* Permission check: root (uid 0) can kill any process.
+     * Non-root can only kill processes belonging to the same user. */
+    if (cur && cur->uid != 0 && cur->uid != target->uid) {
+        return ESYS_PERM;
+    }
+
+    /* sig 0 is POSIX null signal: verify process exists and permissions without sending */
+    if (sig == 0) return 0;
 
     __atomic_fetch_or(&target->sig_pending, 1u << sig, __ATOMIC_RELEASE);
+
+    /* If target is blocked / waiting, wake it up so it can receive the signal */
+    if (target->state == PROC_WAIT) {
+        sched_wake(target);
+    }
     return 0;
 }
 
@@ -1225,9 +1241,13 @@ void syscall_check_signals(void) {
 
     uint32_t pending = __atomic_exchange_n(&cur->sig_pending, 0, __ATOMIC_ACQUIRE);
 
-    /* SIGKILL and SIGTERM: terminate the process */
-    if (pending & ((1u << SIGKILL) | (1u << SIGTERM))) {
-        int code = (pending & (1u << SIGKILL)) ? -9 : -15;
+    /* Termination signals */
+    if (pending & ((1u << SIGKILL) | (1u << SIGTERM) | (1u << SIGINT) | (1u << SIGHUP) | (1u << SIGQUIT))) {
+        int code = -15;
+        if (pending & (1u << SIGKILL)) code = -9;
+        else if (pending & (1u << SIGINT)) code = -2;
+        else if (pending & (1u << SIGHUP)) code = -1;
+        else if (pending & (1u << SIGQUIT)) code = -3;
         sched_exit(code);
         /* unreachable */
     }

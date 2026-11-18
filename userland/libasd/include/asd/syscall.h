@@ -90,10 +90,15 @@
 #define SYS_MEMINFO      49  /* (*total_kb, *used_kb) → 0 */
 #define SYS_GETUSERNAME  50  /* (buf, size) → 0 or -errno */
 
-/* Signal numbers (minimal set for v1) */
-#define SIGTERM        1
+/* Signal numbers (POSIX subset) */
+#define SIGHUP         1
+#define SIGINT         2
+#define SIGQUIT        3
 #define SIGKILL        9
+#define SIGTERM       15
 #define SIGCHLD       17
+#define SIGCONT       18
+#define SIGSTOP       19
 
 /* ------------------------------------------------------------------ */
 /* Open flags                                                           */

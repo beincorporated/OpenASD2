@@ -18,6 +18,8 @@ CFLAGS  = --target=x86_64-unknown-elf \
           -I. \
           -I../init \
           -Iinclude \
+          -Iacpi \
+          -Iacpi/uacpi/include \
           -I$(shell $(CC) -print-resource-dir)/include
 
 AS      = clang
@@ -69,7 +71,26 @@ OBJS = \
     $(BUILD)/syscall.o \
     $(BUILD)/syscall_entry.o \
     $(BUILD)/macho.o \
-    $(BUILD)/security.o
+    $(BUILD)/security.o \
+    $(BUILD)/acpi_glue.o \
+    $(BUILD)/uacpi_tables.o \
+    $(BUILD)/uacpi_types.o \
+    $(BUILD)/uacpi_uacpi.o \
+    $(BUILD)/uacpi_utilities.o \
+    $(BUILD)/uacpi_interpreter.o \
+    $(BUILD)/uacpi_opcodes.o \
+    $(BUILD)/uacpi_namespace.o \
+    $(BUILD)/uacpi_stdlib.o \
+    $(BUILD)/uacpi_opregion.o \
+    $(BUILD)/uacpi_default_handlers.o \
+    $(BUILD)/uacpi_io.o \
+    $(BUILD)/uacpi_notify.o \
+    $(BUILD)/uacpi_sleep.o \
+    $(BUILD)/uacpi_registers.o \
+    $(BUILD)/uacpi_resources.o \
+    $(BUILD)/uacpi_event.o \
+    $(BUILD)/uacpi_mutex.o \
+    $(BUILD)/uacpi_osi.o
 
 TARGET = $(BUILD)/asdkernel.bin
 
@@ -187,6 +208,13 @@ $(BUILD)/security.o: security/security.c  | $(BUILD)
 
 # Drivers
 $(BUILD)/ps2kbd.o: drv/ps2kbd.c | $(BUILD)
+	$(CC) $(CFLAGS) -c -o $@ $<
+
+# ACPI & uACPI Subsystem
+$(BUILD)/acpi_glue.o: acpi/acpi_glue.c | $(BUILD)
+	$(CC) $(CFLAGS) -c -o $@ $<
+
+$(BUILD)/uacpi_%.o: acpi/uacpi/source/%.c | $(BUILD)
 	$(CC) $(CFLAGS) -c -o $@ $<
 
 $(TARGET): $(OBJS)

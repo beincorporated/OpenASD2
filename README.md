@@ -24,10 +24,10 @@ From its custom UEFI bootloader to a robust VFS and a growing userspace, OpenASD
 
 - **Custom Bootloader**  
   Native UEFI boot process (`asdboot`) that sets up the hardware environment before handing off to the kernel.
-- **Advanced Scheduling**  
-  Implements a CFS-style (Completely Fair Scheduler) using red-black trees and per-CPU run queues for efficient multitasking.
+- **Advanced Scheduling & SMP**  
+  Implements a CFS-style (Completely Fair Scheduler) with per-CPU run queues and dynamic load balancing. Multi-core processor discovery and Local APIC enumeration powered by integrated **uACPI** parsing the ACPI MADT.
 - **Robust VFS & File Systems**  
-  Supports FAT32 (read-only) for boot media and a fully functional `ramfs` (read-write) for temporary data.
+  Supports FAT16/FAT32 (read-write) for boot and storage media, and a fully functional `ramfs` (read-write) for temporary data.
 - **Secure Foundation**  
   - Passwords are hashed using a salted, iterated mixing function (FNV-1a + Murmur-style finalization).
   - Strict pointer validation across all system calls to prevent userland from corrupting kernel space.

@@ -373,9 +373,14 @@ Sends signal `sig` to process `pid`. Returns 0 or negative.
 
 | Signal | Number | Default action |
 |--------|--------|----------------|
-| `SIGTERM` | 1 | Terminate gracefully |
+| `SIGHUP` | 1 | Terminate |
+| `SIGINT` | 2 | Terminate |
+| `SIGQUIT` | 3 | Terminate |
 | `SIGKILL` | 9 | Terminate immediately |
+| `SIGTERM` | 15 | Terminate gracefully |
 | `SIGCHLD` | 17 | Sent to parent on child exit (auto-cleared) |
+| `SIGCONT` | 18 | Continue if stopped |
+| `SIGSTOP` | 19 | Stop process |
 
 Signals are delivered at the next syscall return boundary. `SIGKILL` cannot be blocked.
 
