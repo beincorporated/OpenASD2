@@ -6,7 +6,7 @@
  *
  * Usage: kill [-9] <pid>
  *
- * NOTE: OpenASD does not yet have a SYS_KILL syscall.  This utility
+ * NOTE: OpenASD2 does not yet have a SYS_KILL syscall.  This utility
  * serves as a placeholder that demonstrates the intended interface and
  * will become functional once SYS_KILL is implemented in the kernel.
  */

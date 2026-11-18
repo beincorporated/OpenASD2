@@ -1,5 +1,5 @@
 /*
- * filetest — VFS write/read regression test for OpenASD.
+ * filetest — VFS write/read regression test for OpenASD2.
  * Prints "FILETEST OK" on success, "FILETEST FAIL: <reason>" on error.
  */
 #include <asd/syscall.h>

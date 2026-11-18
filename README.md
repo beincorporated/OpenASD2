@@ -1,12 +1,9 @@
 <div align="center">
-  <img src="documentation/logo.png" alt="OpenASD Logo" width="200" />
+  <img src="documentation/logo.png" alt="OpenASD2 Logo" width="200" />
   <br><br>
   <p><b>A modern, experimental x86-64 microkernel operating system</b></p>
   
-  <a href="https://openasd.msh356.store/"><img src="https://img.shields.io/badge/Website-000000?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Site" /></a>
-  <a href="https://discord.gg/ByrXNj8YH"><img src="https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord" /></a>
   <a href="https://t.me/openasd_ru"><img src="https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white" alt="Telegram" /></a>
-  <a href="https://wiki.openasd.msh356.store/doku.php?id=start"><img src="https://img.shields.io/badge/Wiki-FFFFFF?style=for-the-badge&logo=wikipedia&logoColor=black" alt="Wiki" /></a>
   <br><br>
   
   [![License: BSD 2-Clause](https://img.shields.io/badge/License-BSD_2--Clause-blue.svg)](https://opensource.org/licenses/BSD-2-Clause)
@@ -17,9 +14,11 @@
 
 ---
 
-**OpenASD** is a research microkernel operating system built from scratch for the x86-64 architecture. Written entirely in freestanding C and assembly, it aims to explore modern OS concepts while remaining minimalistic and highly educational.
+> **Fork of the original [OpenASD](https://github.com/komarufan/OpenASD), which is no longer maintained.**
 
-From its custom UEFI bootloader to a robust VFS and a growing userspace, OpenASD is a complete system that runs on bare metal.
+**OpenASD2** is a research microkernel operating system built from scratch for the x86-64 architecture. Written entirely in freestanding C and assembly, it aims to explore modern OS concepts while remaining minimalistic and highly educational.
+
+From its custom UEFI bootloader to a robust VFS and a growing userspace, OpenASD2 is a complete system that runs on bare metal.
 
 ## Core Features
 
@@ -39,7 +38,7 @@ From its custom UEFI bootloader to a robust VFS and a growing userspace, OpenASD
 
 ## Architecture
 
-OpenASD follows a clean separation of concerns, dividing the system into distinct functional layers:
+OpenASD2 follows a clean separation of concerns, dividing the system into distinct functional layers:
 
 ```text
 boot/        — UEFI bootloader (asdboot)
@@ -63,7 +62,7 @@ userland/    — Bare-metal userspace environment
 The kernel strictly adheres to the System V AMD64 ABI. It correctly constructs the initial stack (`argc`, `argv`, `envp`) for userland processes, ensuring seamless compatibility and standard behavior for compiled C programs.
 
 ### Syscall Interface
-OpenASD provides a minimal POSIX-like system call interface that closely mirrors the Linux x86-64 ABI. This compatibility layer allows for straightforward porting of existing simple C programs into the OpenASD ecosystem.
+OpenASD2 provides a minimal POSIX-like system call interface that closely mirrors the Linux x86-64 ABI. This compatibility layer allows for straightforward porting of existing simple C programs into the OpenASD2 ecosystem.
 
 - `rax` holds the system call number.
 - `rdi`, `rsi`, `rdx`, `r10`, `r8`, `r9` carry the arguments.
@@ -75,14 +74,4 @@ For more in-depth technical details on various subsystems, check out the `docume
 
 ## License
 
-OpenASD is open-source software licensed under the **BSD 2-Clause License**. See the [LICENSE](LICENSE) file for more details.
-
-## Star History
-
-<a href="https://star-history.com/#komarufan/OpenASD&Date">
- <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=komarufan/OpenASD&type=Date&theme=dark" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=komarufan/OpenASD&type=Date" />
-   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=komarufan/OpenASD&type=Date" />
- </picture>
-</a>
+OpenASD2 is open-source software licensed under the **BSD 2-Clause License**. See the [LICENSE](LICENSE) file for more details.

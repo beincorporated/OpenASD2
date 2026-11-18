@@ -1,6 +1,6 @@
 # Writing VFS Filesystem Backends
 
-The OpenASD VFS uses a backend plugin model: any code that implements the `vfs_ops_t` interface can be registered as a filesystem and mounted at a path prefix.
+The OpenASD2 VFS uses a backend plugin model: any code that implements the `vfs_ops_t` interface can be registered as a filesystem and mounted at a path prefix.
 
 ---
 

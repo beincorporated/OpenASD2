@@ -675,7 +675,7 @@ static void str_copy(char *dst, const char *src, size_t n) {
 static uint64_t sys_uname(uint64_t buf_u) {
     asd_utsname_t ku;
     if (!validate_user_ptr((void *)(uintptr_t)buf_u, sizeof(asd_utsname_t))) return ESYS_FAULT;
-    str_copy(ku.sysname,    "OpenASD",  UTSNAME_LEN);
+    str_copy(ku.sysname,    "OpenASD2",  UTSNAME_LEN);
     str_copy(ku.nodename,   g_hostname, UTSNAME_LEN);
     ku.nodename[UTSNAME_LEN - 1] = '\0';
     str_copy(ku.release,    "1.0",      UTSNAME_LEN);

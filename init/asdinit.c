@@ -91,7 +91,7 @@ static void login_prompt(void) {
     char uname[USR_NAME_LEN];
     char pw[128];
 
-    serial_puts("\nOpenASD 1.0\n");
+    serial_puts("\nOpenASD2 1.0\n");
     serial_puts("====================\n");
 
     for (;;) {

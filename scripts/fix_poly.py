@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Replace Poly1305 body with correct donna-64 implementation."""
 
-TLS_PATH = "C:/Users/Администратор/Downloads/OpenASD-main/kernel/net/tls.c"
+TLS_PATH = "C:/Users/Администратор/Downloads/OpenASD2/kernel/net/tls.c"
 
 OLD_START = "    /* donna-64: load r as 3x44-bit limbs with inline clamp masks */"
 OLD_END   = "}\n\n/* ChaCha20-Poly1305 AEAD */"

@@ -2,7 +2,7 @@
  * SPDX-License-Identifier: BSD-2-Clause
  * Copyright (c) 2026, ASD Project Contributors
  *
- * OpenASD Security Module (ASM) — implementation.
+ * OpenASD2 Security Module (ASM) — implementation.
  *
  * This module provides:
  *

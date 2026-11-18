@@ -701,8 +701,8 @@ static void deploy_directory_structure(const char *user_name) {
                            VFS_O_WRITE | VFS_O_CREAT | VFS_O_TRUNC, NULL);
         if (fd > 0) {
             static const char *rel =
-                "NAME=\"OpenASD\"\nVERSION=\"1.0\"\nID=openasd\n"
-                "VERSION_ID=\"1.0\"\nPRETTY_NAME=\"OpenASD 1.0\"\n";
+                "NAME=\"OpenASD2\"\nVERSION=\"1.0\"\nID=openasd2\n"
+                "VERSION_ID=\"1.0\"\nPRETTY_NAME=\"OpenASD2 1.0\"\n";
             vfs_write(fd, rel, strlen(rel));
             vfs_close(fd);
             serial_puts("    wrote: /etc/os-release\n");
@@ -715,7 +715,7 @@ static void deploy_directory_structure(const char *user_name) {
                            VFS_O_WRITE | VFS_O_CREAT | VFS_O_TRUNC, NULL);
         if (fd > 0) {
             static const char *motd =
-                "Welcome to OpenASD 1.0\n"
+                "Welcome to OpenASD2 1.0\n"
                 "Type 'help' for commands.\n"
                 "Tip: 'apm help' to manage packages.\n";
             vfs_write(fd, motd, strlen(motd));

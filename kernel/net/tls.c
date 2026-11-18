@@ -1,5 +1,5 @@
 /*
- * tls.c — Minimal TLS 1.3 client for OpenASD
+ * tls.c — Minimal TLS 1.3 client for OpenASD2
  *
  * Cipher suite : TLS_CHACHA20_POLY1305_SHA256  (0x1303)
  * Key exchange : X25519 (Curve25519)

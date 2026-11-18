@@ -2,7 +2,7 @@
  * SPDX-License-Identifier: BSD-2-Clause
  * Copyright (c) 2026, ASD Project Contributors
  *
- * asdsh — minimal interactive shell for OpenASD.
+ * asdsh — minimal interactive shell for OpenASD2.
  *
  * Improvements over original:
  *  - Removed duplicate cmd_pwd definition (was a compile error).
@@ -285,7 +285,7 @@ static void cmd_ps(void) {
 
 static void cmd_uname(const char *arg) {
     int all = (arg && arg[0] == '-' && arg[1] == 'a');
-    serial_puts("OpenASD");
+    serial_puts("OpenASD2");
     if (all) {
         serial_putc(' ');
         serial_puts(g_hostname);

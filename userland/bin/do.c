@@ -1,4 +1,4 @@
-/* do — run command as root (wheel users only) for OpenASD.
+/* do — run command as root (wheel users only) for OpenASD2.
  *
  * Usage: do <command> [args...]
  *

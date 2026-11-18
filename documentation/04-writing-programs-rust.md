@@ -1,6 +1,6 @@
 # Writing Programs in Rust
 
-OpenASD supports `no_std` Rust programs through the `libasd_sys` crate. The crate provides raw syscall wrappers; you build higher-level abstractions on top.
+OpenASD2 supports `no_std` Rust programs through the `libasd_sys` crate. The crate provides raw syscall wrappers; you build higher-level abstractions on top.
 
 ---
 
@@ -84,7 +84,7 @@ pub extern "C" fn main(_argc: i32, _argv: *const *const u8, _envp: *const *const
 Point your Cargo.toml at the local copy:
 ```toml
 [dependencies]
-asd_sys = { path = "/path/to/OpenASD/userland/libasd/rust/asd_sys" }
+asd_sys = { path = "/path/to/OpenASD2/userland/libasd/rust/asd_sys" }
 ```
 
 ### Available functions

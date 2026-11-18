@@ -1,6 +1,6 @@
-# Building Custom Packages (.apkg) for OpenASD APM
+# Building Custom Packages (.apkg) for OpenASD2 APM
 
-The APM (ASD Package Manager) uses the `.apkg` binary archive format for its packages. OpenASD provides a built-in Python script to package compiled programs into these archives.
+The APM (ASD Package Manager) uses the `.apkg` binary archive format for its packages. OpenASD2 provides a built-in Python script to package compiled programs into these archives.
 
 ## Step 1: Prepare the Binary
 First, you need to write your program (for example, in the `userland/my_program` directory) and set up its build system (e.g., a `Makefile`). The build process should output an executable file or a library.
@@ -13,7 +13,7 @@ Open `scripts/build_packages.py` in the root of the source tree and locate the `
 ```python
 PACKAGES = [
     # (Package_Name, Install_Path_in_OS, Source_Binary_Path, "Description", [Dependencies]),
-    ("my_program", "/bin/my_program", "userland/my_program/build/my_program", "My custom program for OpenASD", []),
+    ("my_program", "/bin/my_program", "userland/my_program/build/my_program", "My custom program for OpenASD2", []),
 ]
 ```
 

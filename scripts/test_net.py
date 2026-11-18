@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-test_net.py — OpenASD network autotest driver.
+test_net.py — OpenASD2 network autotest driver.
 
 Builds kernel, patches disk image with autotest_nettest cmdline,
 runs QEMU headlessly with virtio-net, reads serial log, reports results.
@@ -47,7 +47,7 @@ end
 
 entry
   id = "default"
-  label = "ASD OpenASD"
+  label = "ASD OpenASD2"
   kernel = "/boot/asdkernel.bin"
   cmdline = ""
 end
@@ -163,7 +163,7 @@ def analyse(log):
 
 
 def main():
-    ap = argparse.ArgumentParser(description="OpenASD network autotest")
+    ap = argparse.ArgumentParser(description="OpenASD2 network autotest")
     ap.add_argument("--no-build",  action="store_true", help="skip make all")
     ap.add_argument("--timeout",   type=int, default=45, help="QEMU timeout (s)")
     ap.add_argument("--install",   action="store_true", help="run make install first")

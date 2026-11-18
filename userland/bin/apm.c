@@ -2,7 +2,7 @@
  * apm — ASD Package Manager v1.0
  *
  * Inspired by apk (Alpine) and xbps (Void Linux).
- * Manages binary packages for OpenASD x86-64.
+ * Manages binary packages for OpenASD2 x86-64.
  *
  * Layout:
  *   /etc/apm/apm.conf              — configuration (repos, options)

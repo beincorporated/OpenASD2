@@ -1,5 +1,5 @@
 /*
- * ping — ICMP echo utility for OpenASD.
+ * ping — ICMP echo utility for OpenASD2.
  * Usage: ping <ip>  or  ping <a.b.c.d>
  */
 

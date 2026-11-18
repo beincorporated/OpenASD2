@@ -46,7 +46,7 @@ main.o: main.c
 	$(CC) $(CFLAGS) -c $< -o $@
 ```
 
-`$(ASD)` should point to the OpenASD source root.
+`$(ASD)` should point to the OpenASD2 source root.
 
 **Critical compile flags:**
 

@@ -34,7 +34,7 @@ pacman -S mingw-w64-ucrt-x86_64-clang \
 ## Repository layout
 
 ```
-OpenASD/
+OpenASD2/
 ├── boot/            asdboot UEFI bootloader
 ├── doc/             Design documents (internal)
 ├── documentation/   Developer documentation (this folder)
@@ -140,13 +140,13 @@ The bootloader reads `/boot/asdboot.conf` from the FAT32 volume:
 timeout = 3
 
 menu
-  title = "OpenASD 1.0"
+  title = "OpenASD2"
   default = "default"
 end
 
 entry
   id      = "default"
-  label   = "OpenASD 1.0"
+  label   = "OpenASD2"
   kernel  = "/boot/asdkernel.bin"
   cmdline = ""
 end

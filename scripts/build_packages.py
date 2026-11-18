@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-build_packages.py — Build .apkg archives and index.idx for OpenASD APM.
+build_packages.py — Build .apkg archives and index.idx for OpenASD2 APM.
 
 Only mifetch and mitext are distributed as packages.
 All other utilities are built into the OS image directly.
@@ -95,7 +95,7 @@ def build_apkg(name: str, version: str, arch: str, description: str,
 def build_index(packages_meta: list[dict], repo_name: str = "official") -> str:
     """Build repository index.idx text."""
     lines = [
-        f"# OpenASD APM Repository Index v1",
+        f"# OpenASD2 APM Repository Index v1",
         f"repo={repo_name}",
         f"timestamp={int(time.time())}",
         f"arch={ARCH}",
@@ -119,7 +119,7 @@ def build_index(packages_meta: list[dict], repo_name: str = "official") -> str:
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Build OpenASD APM packages")
+    parser = argparse.ArgumentParser(description="Build OpenASD2 APM packages")
     parser.add_argument("--out", default="build/packages",
                         help="Output directory (default: build/packages)")
     parser.add_argument("--repo", default="official",

@@ -1,6 +1,6 @@
-# OpenASD 1.0 — Developer Documentation
+# OpenASD2 — Developer Documentation
 
-OpenASD is a 64-bit microkernel operating system for x86-64. This documentation covers everything needed to write programs, drivers, and filesystem backends for the platform.
+OpenASD2 is a 64-bit microkernel operating system for x86-64. This documentation covers everything needed to write programs, drivers, and filesystem backends for the platform.
 
 ---
 
@@ -27,7 +27,7 @@ OpenASD is a 64-bit microkernel operating system for x86-64. This documentation 
 #include <asd/syscall.h>
 
 int main(int argc, const char **argv) {
-    asd_write(1, "hello, OpenASD\n", 15);
+    asd_write(1, "hello, OpenASD2\n", 15);
     asd_exit(0);
 }
 ```

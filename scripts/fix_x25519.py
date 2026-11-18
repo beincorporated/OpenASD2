@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Replace X25519 (Curve25519) implementation with ref10 version."""
-TLS = "C:/Users/Администратор/Downloads/OpenASD-main/kernel/net/tls.c"
+TLS = "C:/Users/Администратор/Downloads/OpenASD2/kernel/net/tls.c"
 
 NEW_X25519 = """/* X25519 (Curve25519) — ref10 representation (D.J. Bernstein, public domain)
  * 10 x 25/26-bit limbs, pure 32-bit arithmetic. */

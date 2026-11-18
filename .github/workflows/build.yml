@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    name: Build OpenASD
+    name: Build OpenASD2
     runs-on: ubuntu-22.04
 
     steps:
@@ -168,7 +168,7 @@ jobs:
         uses: actions/upload-artifact@v4
         if: success() || failure()
         with:
-          name: openasd-1.0-usb
-          path: build/usb/openasd-1.0.img
+          name: openasd2-1.0-usb
+          path: build/usb/openasd2-1.0.img
           retention-days: 7
           if-no-files-found: warn

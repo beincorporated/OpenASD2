@@ -1,4 +1,4 @@
-/* sort — sort lines of text for OpenASD */
+/* sort — sort lines of text for OpenASD2 */
 #include <asd/syscall.h>
 #include <stdint.h>
 

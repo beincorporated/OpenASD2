@@ -2,7 +2,7 @@
 
 ## Overview
 
-OpenASD provides three IPC mechanisms:
+OpenASD2 provides three IPC mechanisms:
 
 | Mechanism | Use case | API |
 |-----------|----------|-----|

@@ -1,5 +1,5 @@
 /*
- * nettest — Network regression test for OpenASD.
+ * nettest — Network regression test for OpenASD2.
  * Tests: ICMP ping, DNS resolve, TCP connect, TLS handshake, TLS HTTP GET.
  */
 #include <asd/syscall.h>

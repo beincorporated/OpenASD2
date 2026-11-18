@@ -1,4 +1,4 @@
-/* tail — print last N lines for OpenASD */
+/* tail — print last N lines for OpenASD2 */
 #include <asd/syscall.h>
 #include <stdint.h>
 

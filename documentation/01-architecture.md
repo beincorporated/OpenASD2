@@ -1,8 +1,8 @@
-# OpenASD Architecture
+# OpenASD2 Architecture
 
 ## Overview
 
-OpenASD is a monolithic-style kernel with a microkernel-inspired design: the kernel handles scheduling, memory, VFS, and drivers, while userland programs are isolated in separate address spaces and communicate via syscalls.
+OpenASD2 is a monolithic-style kernel with a microkernel-inspired design: the kernel handles scheduling, memory, VFS, and drivers, while userland programs are isolated in separate address spaces and communicate via syscalls.
 
 ```
 ┌─────────────────────────────────────────────────────────┐

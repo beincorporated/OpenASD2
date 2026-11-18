@@ -2,7 +2,7 @@
  * SPDX-License-Identifier: BSD-2-Clause
  * Copyright (c) 2026, ASD Project Contributors
  *
- * Minimal network stack for OpenASD:
+ * Minimal network stack for OpenASD2:
  *   Ethernet → ARP (reply + cache) + IPv4 → UDP
  *
  * All state is static (no heap). Packet reception is polled from

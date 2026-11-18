@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: MIT
-# Makefile for fastfetch — OpenASD userland port (minimal link, no libasd stdio)
+# Makefile for fastfetch — OpenASD2 userland port (minimal link, no libasd stdio)
 
 CC      = clang
 CFLAGS  = --target=x86_64-apple-macosx13.0 \

@@ -1,4 +1,4 @@
-/* grep — simple substring/pattern search for OpenASD */
+/* grep — simple substring/pattern search for OpenASD2 */
 #include <asd/syscall.h>
 #include <stdint.h>
 

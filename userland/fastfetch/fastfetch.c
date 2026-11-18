@@ -1,6 +1,6 @@
 /*
  * SPDX-License-Identifier: MIT
- * fastfetch — minimal OpenASD system info (raw syscalls only, no libasd stdio).
+ * fastfetch — minimal OpenASD2 system info (raw syscalls only, no libasd stdio).
  */
 
 #include <asd/syscall.h>
@@ -76,7 +76,7 @@ int main(int argc, const char **argv, const char **envp) {
     (void)argv;
     (void)envp;
 
-    outln("OpenASD fastfetch");
+    outln("OpenASD2 fastfetch");
     outln("");
     outln("   ___                  _   ____  ____  ");
     outln("  / _ \\ _ __   ___ _ __| | / ___||  _ \\ ");
@@ -95,7 +95,7 @@ int main(int argc, const char **argv, const char **envp) {
         asd_exit(1);
     }
 
-    const char *host = uts.nodename[0] ? uts.nodename : "openasd";
+    const char *host = uts.nodename[0] ? uts.nodename : "openasd2";
     const char *user = (asd_getuid() == 0) ? "root" : "user";
 
     out("  ");
@@ -105,7 +105,7 @@ int main(int argc, const char **argv, const char **envp) {
     outln("  --------");
     outln("");
 
-    out_field("OS", uts.sysname[0] ? uts.sysname : "OpenASD");
+    out_field("OS", uts.sysname[0] ? uts.sysname : "OpenASD2");
     out_field("Kernel", uts.release[0] ? uts.release : "1.0");
     out("  Uptime: ");
     out_uptime(asd_time() / 10000000ULL);

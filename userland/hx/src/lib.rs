@@ -1,4 +1,4 @@
-//! hx — Helix-inspired modal editor for OpenASD
+//! hx — Helix-inspired modal editor for OpenASD2
 //! Runs bare-metal: no_std, Mach-O, raw ASD syscalls.
 
 #![no_std]

@@ -2,7 +2,7 @@
  * SPDX-License-Identifier: BSD-2-Clause
  * Copyright (c) 2026, ASD Project Contributors
  *
- * asdlog -- system logging daemon for OpenASD
+ * asdlog -- system logging daemon for OpenASD2
  *
  * Reads log messages from the kernel ring buffer via SYS_IOCTL and
  * writes them to /var/log/syslog on the filesystem.  On a minimal

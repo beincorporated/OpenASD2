@@ -1,4 +1,4 @@
-/* find — recursive directory search for OpenASD */
+/* find — recursive directory search for OpenASD2 */
 #include <asd/syscall.h>
 #include <stdint.h>
 

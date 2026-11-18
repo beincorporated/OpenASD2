@@ -1,6 +1,6 @@
 # APM — ASD Package Manager
 
-`apm` is the package manager for OpenASD, inspired by apk (Alpine) and xbps (Void Linux).
+`apm` is the package manager for OpenASD2, inspired by apk (Alpine) and xbps (Void Linux).
 
 ---
 
@@ -154,7 +154,7 @@ Here is a Python script to build an `.apkg` archive:
 
 ```python
 #!/usr/bin/env python3
-"""build_apkg.py — Create an OpenASD .apkg package archive"""
+"""build_apkg.py — Create an OpenASD2 .apkg package archive"""
 import struct, sys, os
 
 def build_apkg(meta: dict, files: list[tuple[str, bytes]]) -> bytes:
@@ -228,7 +228,7 @@ if __name__ == "__main__":
    repo myrepo http://your-server.com/apm/
    ```
 
-> **Note:** Network downloads require TCP support in the OpenASD kernel.
+> **Note:** Network downloads require TCP support in the OpenASD2 kernel.
 > Until then, packages can be manually copied to `/var/apm/cache/` and
 > installed from cache using `apm install <name>`.
 

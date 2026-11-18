@@ -38,7 +38,7 @@ static void tui_screen_bg(void) {
     uint32_t cols, rows;
     fb_console_get_size(&cols, &rows);
     fb_console_set_cursor((cols - 24) / 2, 1);
-    fb_console_puts("  OpenASD Installer v1.0  ");
+    fb_console_puts("  OpenASD2 Installer v1.0  ");
     fb_console_tick();
 }
 
@@ -218,22 +218,22 @@ int tui_screen_welcome(void) {
         tui_screen_bg();
 
         uint32_t bx, by;
-        tui_dialog(58, 14, " Welcome to OpenASD ", &bx, &by);
+        tui_dialog(58, 14, " Welcome to OpenASD2 ", &bx, &by);
 
         tui_text(bx, by, 3, 2,
-            "Welcome to the OpenASD installation wizard.");
+            "Welcome to the OpenASD2 installation wizard.");
         tui_text(bx, by, 3, 3,
             "This program will guide you through installing");
         tui_text(bx, by, 3, 4,
-            "OpenASD onto your system.");
+            "OpenASD2 onto your system.");
         tui_text(bx, by, 3, 6,
-            "OpenASD is a research microkernel OS.  All data");
+            "OpenASD2 is a research microkernel OS.  All data");
         tui_text(bx, by, 3, 7,
             "on the selected disk WILL BE ERASED.");
         tui_text(bx, by, 3, 9,
             "Choose an option below:");
 
-        tui_button(bx + 8,  by + 11, " Install OpenASD ", sel == 0);
+        tui_button(bx + 8,  by + 11, " Install OpenASD2 ", sel == 0);
         tui_button(bx + 32, by + 11, " Live Shell ",      sel == 1);
 
         tui_status_bar("[Enter] Select  [Arrows] Navigate  [Q] Quit", "");
@@ -564,7 +564,7 @@ void tui_screen_progress(int step, uint64_t done, uint64_t total) {
         fb_console_set_colors(TUI_FG_WHITE, TUI_BG_BLUE);
         fb_console_clear();
         tui_screen_bg();
-        tui_dialog(58, 14, " Installing OpenASD ", &s_bx, &s_by);
+        tui_dialog(58, 14, " Installing OpenASD2 ", &s_bx, &s_by);
         last_step = step;
         last_pct = -1; /* force redraw bar */
     } else if (step == 1 && current_pct == last_pct && done == last_done) {
@@ -612,7 +612,7 @@ void tui_screen_done(int success) {
     uint32_t bx, by;
     if (success) {
         tui_dialog(54, 10, " Installation Complete ", &bx, &by);
-        tui_text(bx, by, 3, 2, "OpenASD has been successfully installed.");
+        tui_text(bx, by, 3, 2, "OpenASD2 has been successfully installed.");
         tui_text(bx, by, 3, 3, "User accounts are saved on the target disk.");
         tui_text(bx, by, 3, 4, "Remove installation media, then reboot.");
         tui_text(bx, by, 3, 6, "Press Enter to reboot, or Q to drop to shell.");

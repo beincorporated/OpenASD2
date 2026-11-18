@@ -256,7 +256,7 @@ static const adf_driver_t g_entry = {
 ```makefile
 CC     = clang
 LD     = ld64.lld
-KDIR   = /path/to/OpenASD/kernel
+KDIR   = /path/to/OpenASD2/kernel
 
 CFLAGS = --target=x86_64-apple-macosx13.0 \
          -ffreestanding -fno-builtin -nostdlib \

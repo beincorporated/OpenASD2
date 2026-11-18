@@ -1,4 +1,4 @@
-/* head — print first N lines for OpenASD */
+/* head — print first N lines for OpenASD2 */
 #include <asd/syscall.h>
 #include <stdint.h>
 

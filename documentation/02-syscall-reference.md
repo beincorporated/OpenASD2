@@ -231,7 +231,7 @@ Fills the uname structure:
 
 ```c
 typedef struct {
-    char sysname[65];    /* "OpenASD" */
+    char sysname[65];    /* "OpenASD2" */
     char nodename[65];   /* hostname */
     char release[65];    /* "1.0" */
     char version[65];    /* "#1" */

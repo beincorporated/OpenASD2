@@ -2,7 +2,7 @@
  * SPDX-License-Identifier: BSD-2-Clause
  * Copyright (c) 2026, ASD Project Contributors
  *
- * netd — network daemon for OpenASD.
+ * netd — network daemon for OpenASD2.
  * Announces presence via UDP, then loops receiving/echoing packets.
  */
 
@@ -47,7 +47,7 @@ int main(int argc, char **argv, char **envp) {
     log_msg("netd: starting\n");
 
     /* Announce to gateway (10.0.2.2) on UDP port 9 (discard) */
-    const char *hello = "OpenASD netd hello";
+    const char *hello = "OpenASD2 netd hello";
     uint32_t gw_ip = (10u << 24) | (0u << 16) | (2u << 8) | 2u;
     int r = net_send(gw_ip, 9, 6000, hello, (uint16_t)strlen(hello));
     if (r > 0) {

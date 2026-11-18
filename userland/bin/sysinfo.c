@@ -2,7 +2,7 @@
 
 int main(int argc, char **argv) {
     (void)argc; (void)argv;
-    puts("OpenASD Microkernel OS");
+    puts("OpenASD2 Microkernel OS");
     puts("Version: 1.0");
     puts("Build Date: May 13, 2026");
     
