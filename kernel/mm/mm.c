@@ -383,7 +383,7 @@ void amm_kernel_pml4_init(void) {
     /* Map 3: PHYS_MAP_BASE identity for phys_to_virt translation. */
     {
         uint64_t top = g_phys.phys_top;
-        if (top == 0) top = AMM_IDENTITY_LIMIT;
+        if (top < AMM_IDENTITY_LIMIT) top = AMM_IDENTITY_LIMIT;
         uint64_t *pml4 = phys_to_virt(g_kernel_cr3);
 
         for (paddr_t pa = 0; pa < top; pa += (2ULL << 20)) {

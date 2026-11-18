@@ -289,9 +289,18 @@ static void lapic_program_oneshot(uint64_t ns) {
     /* PIT drives preemption; LAPIC MMIO is not mapped in this bring-up. */
 }
 
+static inline uint32_t get_apic_id(void) {
+    uint32_t eax, ebx, ecx, edx;
+    __asm__ volatile("cpuid"
+        : "=a"(eax), "=b"(ebx), "=c"(ecx), "=d"(edx)
+        : "a"(1)
+        : "memory");
+    return (ebx >> 24) & 0xFF;
+}
+
 static uint32_t this_cpu_id(void) {
-    if (g_cpu_count > 1) {
-        uint32_t apic_id = (*lapic_reg(0x020) >> 24) & 0xFF;
+    if (g_cpu_count > 1 && g_smp_info.cpu_count > 0) {
+        uint32_t apic_id = get_apic_id();
         for (uint32_t i = 0; i < g_smp_info.cpu_count; i++) {
             if (g_smp_info.cpus[i].apic_id == apic_id) return i;
         }
@@ -385,6 +394,7 @@ __attribute__((visibility("default"))) void sched_bootstrap_enter(void (*fn)(voi
     uint64_t sp = g_bootstrap_pcb.kstack_top - 8; /* RSP%16==8 before CALL */
     __asm__ volatile(
         "mov %[sp], %%rsp\n"
+        "sti\n"
         "call *%[fn]\n"
         :
         : [sp]"r"(sp), [fn]"r"(fn)

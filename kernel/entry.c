@@ -673,12 +673,10 @@ void kernel_main_body(asd_bib_t *bib, uint64_t magic) {
     serial_puts("  launching asdinit (PID 1)\n");
     serial_puts("  entering asdinit main loop\n");
 
-    pic_unmask(0);    /* PIT / sched_tick */
-    __asm__ volatile("sti");
-
     /* These are defined in sched.c but may be static or named differently in this build */
     extern void sched_bootstrap_init_thread(void);
     extern void sched_bootstrap_enter(void (*fn)(void)) __attribute__((noreturn));
     sched_bootstrap_init_thread();
+    pic_unmask(0);    /* PIT / sched_tick */
     sched_bootstrap_enter(asdinit_main);
 }
